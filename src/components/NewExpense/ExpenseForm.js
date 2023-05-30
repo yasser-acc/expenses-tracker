@@ -30,18 +30,30 @@ const ExpenseForm = () => {
     };
 
     console.log(expenseData);
+    //use the state function to clear the value of inputs after getting their data
+    setEnteredTitle(" ");
+    setEnteredAmount(" ");
+    setEnteredAmount(" ");
   };
   return (
     <form onSubmit={SubmitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            onChange={titleChangeHandler}
+            value={enteredTitle}
+          />
         </div>
 
         <div className="new-expense__control">
           <label>Amount</label>
-          <input type="number" onChange={AmountChangeHandler} />
+          <input
+            type="number"
+            onChange={AmountChangeHandler}
+            value={enteredAmount}
+          />
         </div>
 
         <div className="new-expense__control">
@@ -51,6 +63,7 @@ const ExpenseForm = () => {
             min="2020-01-01"
             max="2024-12-31"
             onChange={DateChangeHandler}
+            value={enteredDate}
           />
         </div>
         <div className="new-expense__actions">
