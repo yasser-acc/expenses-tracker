@@ -17,8 +17,22 @@ const ExpenseForm = () => {
   const DateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
   };
+
+  const SubmitHandler = (event) => {
+    //prevent the default loading after the submit button is clicked
+    event.preventDefault();
+
+    //put all combined data in an object
+    const expenseData = {
+      title: enteredTitle,
+      Amount: enteredAmount,
+      Date: new Date(enteredDate),
+    };
+
+    console.log(expenseData);
+  };
   return (
-    <form>
+    <form onSubmit={SubmitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
