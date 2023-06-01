@@ -26,7 +26,7 @@ function App() {
   ];
 
   const addExpensHandler = (expense) => {
-    console.log(expenses);
+    console.log(expense);
   };
   return (
     <div>
