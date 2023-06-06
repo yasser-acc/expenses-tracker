@@ -12,6 +12,10 @@ const Expenses = (props) => {
     setFilteredYear(selectedYear);
   };
 
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
   return (
     <div>
       <Card className="expenses">
@@ -24,7 +28,7 @@ const Expenses = (props) => {
           //rendring lists of data
           //this will help us get rid of hard coded expenseItems we used before
 
-          props.items.map((expense) => (
+          filteredExpenses.map((expense) => (
             <ExpenseItem
               //Added a key to help react identify individual items
               //You should always add a key when mapping out a list of items
