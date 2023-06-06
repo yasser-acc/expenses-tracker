@@ -26,6 +26,9 @@ const Expenses = (props) => {
 
           props.items.map((expense) => (
             <ExpenseItem
+              //Added a key to help react identify individual items
+              //You should always add a key when mapping out a list of items
+              key={expense.id}
               title={expense.title}
               amount={expense.amount}
               date={expense.date}
