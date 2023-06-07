@@ -23,26 +23,16 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {
-          //render an array of every expense element
-          //rendring lists of data
-          //this will help us get rid of hard coded expenseItems we used before
-
-          filteredExpenses.length === 0 ? (
-            <p>No Expenses found.</p>
-          ) : (
-            filteredExpenses.map((expense) => (
-              <ExpenseItem
-                //Added a key to help react identify individual items
-                //You should always add a key when mapping out a list of items
-                key={expense.id}
-                title={expense.title}
-                amount={expense.amount}
-                date={expense.date}
-              />
-            ))
-          )
-        }
+        {filteredExpenses.length === 0 && <p>No Expenses found.</p>}
+        {filteredExpenses.length > 0 &&
+          filteredExpenses.map((expense) => (
+            <ExpenseItem
+              key={expense.id}
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+            />
+          ))}
       </Card>
     </div>
   );
