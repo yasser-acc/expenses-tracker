@@ -3,7 +3,7 @@ import "./ChartBar.css";
 
 const ChartBar = (props) => {
   let barFillHeight = "0%";
-  if (props.max) {
+  if (props.maxValue) {
     //setting up the bar fill height for the chart-bar__fill div
     //barFillHeight will be used as a dynamic css property for this div
     barFillHeight = Math.round((props.value / props.maxValue) * 100) + "%";
